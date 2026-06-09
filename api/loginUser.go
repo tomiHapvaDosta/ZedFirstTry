@@ -10,7 +10,7 @@ import (
 
 func (cfg *apiConfig) loginUser(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
-	requestParams := requestParams{}
+	requestParams := requestParamsUser{}
 	if err := decoder.Decode(&requestParams); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
