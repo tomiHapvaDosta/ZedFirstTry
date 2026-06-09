@@ -39,7 +39,7 @@ func (cfg *apiConfig) loginUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	respontWithJSON(w, http.StatusOK, struct {
+	respondWithJSON(w, http.StatusOK, struct {
 		Token string `json:"token"`
 	}{Token: token})
 }

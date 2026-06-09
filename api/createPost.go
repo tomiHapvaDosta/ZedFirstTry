@@ -39,5 +39,5 @@ func (cfg *apiConfig) createPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	respontWithJSON(w, http.StatusOK, post)
+	respondWithJSON(w, http.StatusOK, post)
 }

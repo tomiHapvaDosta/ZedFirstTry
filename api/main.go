@@ -45,6 +45,10 @@ func main() {
 	mux.HandleFunc("POST /api/users", cfg.createUser)
 	mux.HandleFunc("POST /api/login", cfg.loginUser)
 	mux.HandleFunc("POST /api/posts", cfg.createPost)
+	mux.HandleFunc("GET /api/posts", cfg.getPosts)
+	mux.HandleFunc("GET /api/posts/{id}", cfg.getPost)
+	mux.HandleFunc("PUT /api/posts/{id}", cfg.changePost)
+	mux.HandleFunc("DELETE /api/posts/{id}", cfg.deletePost)
 
 	log.Fatal(server.ListenAndServe())
 }

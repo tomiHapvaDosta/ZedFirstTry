@@ -25,5 +25,5 @@ func (cfg *apiConfig) createUser(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-	respontWithJSON(w, http.StatusCreated, user)
+	respondWithJSON(w, http.StatusCreated, user)
 }
