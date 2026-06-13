@@ -25,3 +25,9 @@ RETURNING *;
 
 -- name: DeletePost :exec
 DELETE FROM posts WHERE id = $1;
+
+-- name: PublishPost :exec
+UPDATE posts
+SET publish = true
+WHERE id = $1
+RETURNING *;

@@ -49,6 +49,7 @@ func main() {
 	mux.HandleFunc("GET /api/posts/{id}", cfg.getPost)
 	mux.HandleFunc("PUT /api/posts/{id}", cfg.changePost)
 	mux.HandleFunc("DELETE /api/posts/{id}", cfg.deletePost)
+	mux.HandleFunc("POST /api/posts/{id}/publish", cfg.publishPost)
 
 	log.Fatal(server.ListenAndServe())
 }

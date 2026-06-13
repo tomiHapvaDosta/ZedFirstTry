@@ -116,6 +116,18 @@ func (q *Queries) GetPosts(ctx context.Context) ([]Post, error) {
 	return items, nil
 }
 
+const publishPost = `-- name: PublishPost :exec
+UPDATE posts
+SET publish = true
+WHERE id = $1
+RETURNING id, user_id, title, body, published, created_at, updated_at
+`
+
+func (q *Queries) PublishPost(ctx context.Context, id uuid.UUID) error {
+	_, err := q.db.ExecContext(ctx, publishPost, id)
+	return err
+}
+
 const updatePost = `-- name: UpdatePost :one
 UPDATE posts
 SET title = $1 AND body = $2
